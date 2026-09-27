@@ -21,3 +21,19 @@ Uma entrada por fase/feature: decisões tomadas, problemas encontrados, tempo ga
 **Tempo gasto:** não cronometrado nesta sessão (retroativo a partir do histórico de mensagens).
 
 **Métricas:** N/A nesta fase (sem código ainda).
+
+---
+
+## 2026-09-27 — Fase 1: Constituição
+
+**Decisões:**
+- Constituição ratificada em `.specify/memory/constitution.md`, v1.0.0, com os 10 princípios de `PROMPT_TCC.md` §6, sem alteração de conteúdo (Fase 0 não trouxe nada que exigisse ajuste nos princípios de engenharia).
+- Seções opcionais do template padrão do Spec Kit (Additional Constraints / Development Workflow) omitidas deliberadamente — conteúdo já coberto pelos Princípios III, VI, IX e X.
+- A partir desta fase, o próprio Princípio X passa a valer para o processo: a constituição foi commitada em branch `docs/constitution` e aberta como PR (#1), não direto na `main`.
+
+**Problemas encontrados:**
+- A skill `speckit-constitution` estava instalada em `.claude/skills/` do projeto, mas o tool de skills da sessão não a reconheceu (skill list carregada antes do projeto existir). Contornado seguindo manualmente as instruções do `SKILL.md` (resolver template, preencher placeholders, escrever Sync Impact Report).
+
+**Tempo gasto:** não cronometrado.
+
+**Métricas:** N/A.
