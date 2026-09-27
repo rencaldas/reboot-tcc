@@ -63,9 +63,7 @@ Todo o planejamento segue **Spec-Driven Development (SDD)** com o GitHub Spec Ki
 
 ## 4. O que já foi decidido na fase exploratória
 
-### 4.1 Geração do catálogo (existe uma prova de conceito)
-
-Existe uma PoC em Python, o `build_cards.py`. Coloque-a em `reference/poc/build_cards.py`. Ela **não é código de produção**: use como referência de comportamento e reescreva com testes na feature `catalogo-cartas`.
+### 4.1 Geração do catálogo
 
 **Fontes.** Não existe uma API única com todos os dados. As fontes são:
 
@@ -186,7 +184,7 @@ tcg-dev/
 ├── specs/                 # artefatos SDD por feature (gerados pelo Spec Kit)
 ├── pipeline/              # geração do catálogo
 ├── apps/                  # web, api, mobile (definido no plan)
-├── reference/poc/         # build_cards.py (só referência)
+├── reference/poc/         # provas de conceito (referência, opcional)
 ├── docs/
 │   ├── adr/               # decisões de arquitetura
 │   ├── arquitetura/       # C4, ER, sequência (Mermaid)
