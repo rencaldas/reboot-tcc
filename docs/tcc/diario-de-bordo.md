@@ -37,3 +37,23 @@ Uma entrada por fase/feature: decisões tomadas, problemas encontrados, tempo ga
 **Tempo gasto:** não cronometrado.
 
 **Métricas:** N/A.
+
+---
+
+## 2026-09-27 — Fase 0.4 (opcional): avaliação da ideia (`/speckit-assess-*`)
+
+Rodado fora de ordem em relação ao `PROMPT_TCC.md` (a avaliação de ideia é §5.4, Fase 0; a constituição já tinha sido ratificada como Fase 1) — sequência escolhida por Renato nesta sessão. Sem impacto: os artefatos são independentes.
+
+**Decisões:**
+- Pipeline completo `intake → research → define → shape → decide` executado para `slug=tcg-programacao`, artefatos em `.specify/assessments/tcg-programacao/`.
+- Pesquisa web confirmou uma informação que antes só estava no `PROMPT_TCC.md` sem verificação: existe de fato uma ADI no STF contra o ECA Digital (**ADI 7999**, partido Missão, relator Min. Luiz Fux, contestando a proibição de loot boxes e a verificação de idade biométrica).
+- Pesquisa também encontrou 4 precedentes diretos de "jogo de cartas + programação" já existentes no Brasil (TechDex TCG, AlgoCards, Cartas Programáveis/SP, Logirunner) — nenhum combina geração automática de catálogo em escala com avaliação acadêmica do pipeline, o que sustenta o enquadramento de pesquisa (a) como diferencial.
+- Veredito: **go**, qualificado — recomendada a Option B do `concept.md` (pipeline de catálogo como núcleo + jogo mínimo jogável), que serve tanto ao enquadramento de pesquisa (a) quanto (b), sem bloquear o `/speckit-specify` de `catalogo-cartas` enquanto a decisão entre (a) e (b) continua pendente com o orientador.
+
+**Problemas encontrados:**
+- Mesma limitação da constituição: skills `speckit-assess-*` instaladas mas não reconhecidas pelo tool de skills da sessão; contornado seguindo manualmente cada `SKILL.md`.
+- Tentativa de acessar `portal.stf.jus.br` diretamente (fonte primária da ADI) retornou HTTP 403; a confirmação da ADI 7999 ficou em fontes jornalísticas jurídicas (Conjur, Gazeta do Povo), não no inteiro teor do processo — registrado como confidence "medium" em `research.md`.
+
+**Tempo gasto:** não cronometrado.
+
+**Métricas:** N/A (avaliação de ideia, não implementação).
