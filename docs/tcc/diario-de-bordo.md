@@ -40,6 +40,12 @@ Uma entrada por fase/feature: decisões tomadas, problemas encontrados, tempo ga
 
 ---
 
+## 2026-09-27 — Correção: `build_cards.py` não existe
+
+A seção 4.1 original do `PROMPT_TCC.md` afirmava como fato já decidido que havia uma PoC (`build_cards.py`) a ser referenciada em `reference/poc/`. Renato confirmou que esse arquivo nunca existiu de fato ("era um arquivo teste") — a suposição do prompt estava errada. Removida toda menção a ele do `PROMPT_TCC.md` (título e corpo da seção 4.1, árvore de estrutura da seção 5.3). As regras de fontes/raridade/atributos da seção 4.1 permanecem válidas — não dependiam do arquivo, só a referência de implementação que não existe mais. O pipeline da feature `catalogo-cartas` será desenhado do zero a partir dessas regras, sem código de referência prévio.
+
+---
+
 ## 2026-09-27 — Fase 0.4 (opcional): avaliação da ideia (`/speckit-assess-*`)
 
 Rodado fora de ordem em relação ao `PROMPT_TCC.md` (a avaliação de ideia é §5.4, Fase 0; a constituição já tinha sido ratificada como Fase 1) — sequência escolhida por Renato nesta sessão. Sem impacto: os artefatos são independentes.
