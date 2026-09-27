@@ -1,0 +1,43 @@
+# Normas ABNT — protegidas por direito autoral, nunca versionar
+docs/tcc/normas/
+
+# Segredos e configuração local
+.env
+.env.*
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / frontend
+node_modules/
+dist/
+build/
+.next/
+.turbo/
+
+# LaTeX (monografia)
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# SO / editor
+.DS_Store
+Thumbs.db
