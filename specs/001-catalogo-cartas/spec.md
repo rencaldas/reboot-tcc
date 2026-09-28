@@ -26,6 +26,7 @@
 - Q: Quantas cartas do topo de cada tipo vão para a revisão manual? → A: As 20 mais populares de cada tipo (todas, se o tipo tiver menos de 20).
 - Q: Em que idioma ficam as descrições e as passivas? → A: Português no MVP; inglês no futuro.
 - Q: Como aparece o nome das cartas de função? → A: Sempre com a linguagem, ex.: `print (Python)`. Formato provisório, ajustável até a primeira publicação.
+- Q: As premissas da seção Assumptions (escala e faixas de raridade, LR em qualquer tipo, só 4 tipos no MVP, palavras-chave como Função, funções homônimas distintas, congelamento só após a 1ª publicação, rebalanceamento fora do escopo, sem teto por tipo, viés só declarado, fora de circulação decidido em `boosters`) estão corretas? → A: Sim, todas confirmadas pelo autor, assim como as leituras de "os mais populares" (as 20 mais populares de cada tipo) e do nome de função provisório.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -247,7 +248,7 @@ O mantenedor registra decisões manuais (promover uma carta a LR, escolher o ele
 
 ## Assumptions
 
-- **Escala de raridade**: R < SR < SSR < UR < LR, conforme a ideia original do autor (`PROMPT_TCC.md` §3). O §4.4 ainda a lista como premissa não confirmada; aguarda a confirmação do autor.
+- **Escala de raridade**: R < SR < SSR < UR < LR, conforme a ideia original do autor (`PROMPT_TCC.md` §3), confirmada na clarificação de 2026-09-27 (o §4.4 a listava como premissa não confirmada).
 - **Volume**: não há mínimo total de cartas (decisão do autor na clarificação). O pipeline gera tudo o que passa nos filtros; a publicação exige pelo menos o topo de cada tipo (SC-001). O volume real só se conhece implementando o pipeline (`decision.md`).
 - **Quando a estabilidade passa a valer**: a garantia de que cartas não mudam (FR-020) vale a partir da primeira versão marcada como publicada. Antes disso, durante o desenvolvimento, as versões são rascunho, e cortes, faixas, mínimos e o formato de nome das funções podem ser ajustados livremente.
 - **Rebalanceamento**: alterar deliberadamente atributos de cartas já publicadas, ou uma passiva depois que a `partida` convergir, está fora do escopo desta feature. Se for necessário no futuro, será uma decisão explícita registrada em ADR.
