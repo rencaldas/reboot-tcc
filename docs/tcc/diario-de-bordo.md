@@ -63,3 +63,25 @@ Rodado fora de ordem em relação ao `PROMPT_TCC.md` (a avaliação de ideia é 
 **Tempo gasto:** não cronometrado.
 
 **Métricas:** N/A (avaliação de ideia, não implementação).
+
+---
+
+## 2026-09-27 — Fase 2: feature `001-catalogo-cartas` (em andamento: specify e clarify)
+
+**Decisões:**
+- Ordem do backlog de features (`PROMPT_TCC.md` §7) confirmada pelo autor sem alteração: `catalogo-cartas` → `contas-e-colecao` → `boosters` → `arte-cartas` → `partida` → `app-mobile` → `conteudo-educativo`.
+- Atributos da carta: ataque, defesa e HP; dano crítico e chance de crítico ficam como extensão futura. Toda carta tem um elemento; cartas SR+ têm passiva única.
+- `/speckit-specify` e `/speckit-clarify` concluídos: 14 clarificações e 12 premissas confirmadas, todas registradas na seção `Clarifications` de `specs/001-catalogo-cartas/spec.md`. As de maior impacto:
+  - textos (descrições e passivas) gerados por IA nesta feature, com revisão individual das cartas SR+ e por amostragem (10% por lote) das descrições R;
+  - seis elementos (Lógica, Dados, Rede, Sistema, Segurança, Interface), atribuídos por curadoria manual, por regra temática (status HTTP pela classe) ou por distribuição equilibrada;
+  - sem volume mínimo total de cartas: a 1ª versão publicada precisa ter pelo menos as 20 mais populares de cada tipo;
+  - a passiva pode ser corrigida até a feature `partida` convergir, e depois congela.
+- Branch da feature: `feat/001-catalogo-cartas`. O Spec Kit não criou a branch numerada sozinho porque a extensão `git` não está instalada, então o nome combina o prefixo do Princípio X com o número do Spec Kit.
+
+**Problemas encontrados:**
+- A decisão de gerar os textos por IA (Q2 = B) entrava em conflito com a reprodutibilidade do catálogo (FR-017), porque a saída de IA não é determinística. Resolvido na própria spec (FR-036): o texto gerado passa a ser entrada armazenada e nunca é gerado de novo automaticamente.
+- Skills `speckit-*` de novo não reconhecidas pela sessão, que foi aberta na pasta pai `C:\Progamer\TCC`; contornado seguindo os `SKILL.md` manualmente.
+
+**Tempo gasto:** não cronometrado.
+
+**Métricas:** spec com 5 user stories, 43 requisitos funcionais (FR-001 a FR-040, mais FR-006a, FR-015a e FR-020a) e 14 critérios de sucesso.
