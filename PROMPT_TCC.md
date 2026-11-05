@@ -81,7 +81,7 @@ O conceito anterior, um TCG de programação, está guardado em `arquivo/tcg/` c
 - **Fio condutor:** construção por camadas, com a história da computação como contexto de cada capítulo.
 - **Capítulos candidatos:** interruptor, lógica, números, texto, instruções, imagem e vídeo.
 - **Recorte inicial proposto:** interruptor, lógica, números e imagem, com um final curto sobre vídeo.
-- **Protótipo:** puzzle de cor RGB. Portas lógicas como puzzle de canos são desejadas; o momento de entrar é definido no `/speckit-clarify`.
+- **Protótipo:** puzzle de cor RGB e portas lógicas como puzzle de canos.
 - **Identidade:** mecânicas de gênero podem servir de inspiração, mas nome, fases e arte são próprios.
 
 ### 4.3 A plataforma
@@ -199,7 +199,7 @@ Repita implement → converge até o resultado ser **Converged**.
 
 ### Backlog de features (ordem sugerida — confirme comigo)
 
-1. `prototipo-jogo`: MVP jogável para mostrar ao orientador.
+1. `prototipo-reboot`: MVP jogável para mostrar ao orientador.
 2. `capitulos-jogo`: capítulos do recorte final.
 3. `avaliacao-aprendizado`: instrumentos e registro da avaliação, após orientador e CEP.
 4. `plataforma-minima`: catálogo, progresso, manifesto e publicação de jogos.
@@ -360,4 +360,4 @@ Se houver teste de usabilidade ou questionário:
 
 ## 12. Próxima ação
 
-A Fase 0 foi concluída e o conceito mudou. Siga pela Fase 2, uma feature por vez, começando por `prototipo-jogo`.
+A Fase 0 foi concluída e o conceito mudou. Siga pela Fase 2, uma feature por vez, começando por `prototipo-reboot`.
