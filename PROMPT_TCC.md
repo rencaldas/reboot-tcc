@@ -24,7 +24,7 @@ O conceito anterior, um TCG de programação, está guardado em `arquivo/tcg/` c
 
 1. **Plano antes de código.** Nunca crie ou edite código sem antes apresentar um plano curto de 3 passos e esperar meu ok.
 2. **Bugs.** Faça o diagnóstico e aponte a causa raiz antes de propor a correção. Use o fluxo de bug do Spec Kit: `/speckit-bug-assess` → `/speckit-bug-fix` → `/speckit-bug-test`.
-3. **Testes.** Nunca remova testes existentes. O domínio crítico (pipeline, raridade, RNG de booster e economia) tem testes escritos antes da implementação.
+3. **Testes.** Nunca remova testes existentes. O domínio crítico (regras e validação dos puzzles, progresso e curadoria de jogos) tem testes escritos antes da implementação.
 4. **Código.** Funções pequenas e modulares, com responsabilidade única. Nada de código comentado ou morto.
 5. **Ambiguidade.** Diga "não sei" ou pergunte. Nunca chute uma implementação, um requisito, uma regra de norma ou uma referência bibliográfica.
 6. **Ritmo.** Uma fase por vez. Ao fim de cada fase, pare, resuma o que foi feito e aguarde minha revisão.
@@ -99,6 +99,8 @@ Pré-teste, pós-teste e teste de retenção com adultos, se o orientador e o CE
 ---
 
 ## 5. Fase 0 — Requisitos acadêmicos e setup (NÃO escreva código nesta fase)
+
+> Registro histórico: fase concluída durante o conceito TCG, antes da mudança de 2026-11-04.
 
 ### 5.1 Perguntas para mim
 
@@ -274,7 +276,7 @@ Ajuste ao manual da UVA e ao formato escolhido.
    - engenharia de requisitos e SDD com agentes de IA;
    - plataformas de jogos, curadoria e isolamento de código de terceiros;
    - aspectos legais: ECA Digital, Marco Legal dos Jogos Eletrônicos (Lei 14.852/2024) e LGPD.
-3. **Trabalhos relacionados:** jogos e plataformas de ensino de programação e TCGs educativos, com tabela comparativa.
+3. **Trabalhos relacionados:** jogos e plataformas de ensino de computação, com tabela comparativa.
 4. **Metodologia:** pesquisa aplicada; processo SDD com Spec Kit (fases, artefatos, quality gates); critérios e instrumentos de avaliação.
 5. **Desenvolvimento:**
    - requisitos (a partir dos `spec.md`);
