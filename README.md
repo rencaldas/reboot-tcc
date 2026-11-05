@@ -1,10 +1,10 @@
 # tcg-dev
 
-TCG (jogo de cartas colecionáveis) web + app com tema de programação, com catálogo de milhares de cartas gerado automaticamente a partir de dados públicos. Projeto Técnico (TCC) de Renato de Azevedo Caldas — Ciência da Computação, Universidade Veiga de Almeida (UVA).
+Jogo web de puzzles em que iniciantes aprendem como o computador funciona, do transistor ao vídeo, publicado em uma plataforma curada de jogos educativos. Projeto Técnico (TCC) de Renato de Azevedo Caldas — Ciência da Computação, Universidade Veiga de Almeida (UVA).
 
 ## Status
 
-Em fase de setup (Fase 0 do processo descrito em [`PROMPT_TCC.md`](PROMPT_TCC.md)). Sem código de produção ainda.
+Conceito refeito e SDD do novo jogo em início. Sem código de produção ainda. O conceito anterior, um TCG, está em [`arquivo/tcg/`](arquivo/tcg/README.md).
 
 ## Processo
 
@@ -18,8 +18,8 @@ Ver [`PROMPT_TCC.md`](PROMPT_TCC.md) para o roteiro completo (fases, backlog de 
 tcg-dev/
 ├── .specify/              # Spec Kit (constituição, templates, extensões)
 ├── specs/                 # artefatos SDD por feature (gerados pelo Spec Kit)
-├── pipeline/              # geração do catálogo de cartas
-├── apps/                  # web, api, mobile (definido no /speckit-plan)
+├── apps/                  # aplicações (definido no /speckit-plan)
+├── arquivo/               # conceitos fora do projeto ativo; não lido por código
 ├── reference/poc/         # provas de conceito (não é código de produção)
 ├── docs/
 │   ├── adr/               # decisões de arquitetura
