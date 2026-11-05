@@ -41,6 +41,8 @@ Dos três enquadramentos propostos:
 
 **Pendente:** decisão final entre (a) e (b) (ou combinação dos dois), a levar ao orientador. Enquanto pendente, o projeto avança pelo backlog técnico (seção 7 do `PROMPT_TCC.md`) sem se comprometer com nenhum dos dois enquadramentos.
 
+**Atualização de 2026-11-04:** com a mudança de conceito, os enquadramentos acima deixaram de valer como candidatos. O tema proposto está em `PROMPT_TCC.md`, seção 4.1, e ainda depende do orientador.
+
 ## 7. Acesso às normas ABNT
 
 Renato **tem acesso** às normas vigentes (via UVA e/ou aquisição própria). **Pendente:** depósito efetivo dos PDFs em `docs/tcc/normas/` (pasta no `.gitignore`, por serem protegidas por direito autoral).

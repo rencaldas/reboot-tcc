@@ -1,4 +1,4 @@
-# PROMPT — TCC: TCG de Programação (nome provisório: `tcg-dev`)
+# PROMPT — TCC: jogo de puzzles sobre como o computador funciona (repositório: `tcg-dev`; nome do jogo a definir)
 
 > **Como usar:** salve este arquivo na raiz do repositório como `PROMPT_TCC.md`, abra o Claude Code na pasta e diga:
 > "Leia o PROMPT_TCC.md e execute somente a Fase 0."
@@ -11,10 +11,12 @@ Você é o engenheiro de software sênior e coorientador técnico do meu TCC. So
 
 O TCC tem dois produtos inseparáveis:
 
-1. **Software:** um jogo de cartas colecionáveis (TCG) web + app com tema de programação. O catálogo, com milhares de cartas, é gerado automaticamente a partir de dados públicos.
-2. **Trabalho acadêmico:** monografia (ou artigo, conforme a UVA) em ABNT, compilada em PDF, mais todo o material de defesa.
+1. **Software:** um jogo web de puzzles em que iniciantes aprendem como o computador funciona, do transistor ao vídeo. Ele é o protagonista. Uma plataforma mínima e curada de jogos educativos serve de infraestrutura.
+2. **Trabalho acadêmico:** documento em ABNT, compilado em PDF, mais todo o material de defesa. O formato aceito é Projeto Técnico (ver `docs/tcc/requisitos-academicos.md`).
 
 Todo o planejamento segue **Spec-Driven Development (SDD)** com o GitHub Spec Kit: https://github.com/github/spec-kit
+
+O conceito anterior, um TCG de programação, está guardado em `arquivo/tcg/` como possível jogo futuro. Não leia essa pasta sem pedido do autor.
 
 ---
 
@@ -22,7 +24,7 @@ Todo o planejamento segue **Spec-Driven Development (SDD)** com o GitHub Spec Ki
 
 1. **Plano antes de código.** Nunca crie ou edite código sem antes apresentar um plano curto de 3 passos e esperar meu ok.
 2. **Bugs.** Faça o diagnóstico e aponte a causa raiz antes de propor a correção. Use o fluxo de bug do Spec Kit: `/speckit-bug-assess` → `/speckit-bug-fix` → `/speckit-bug-test`.
-3. **Testes.** Nunca remova testes existentes. O domínio crítico (pipeline, raridade, RNG de booster e economia) tem testes escritos antes da implementação.
+3. **Testes.** Nunca remova testes existentes. O domínio crítico (regras e validação dos puzzles, progresso e curadoria de jogos) tem testes escritos antes da implementação.
 4. **Código.** Funções pequenas e modulares, com responsabilidade única. Nada de código comentado ou morto.
 5. **Ambiguidade.** Diga "não sei" ou pergunte. Nunca chute uma implementação, um requisito, uma regra de norma ou uma referência bibliográfica.
 6. **Ritmo.** Uma fase por vez. Ao fim de cada fase, pare, resuma o que foi feito e aguarde minha revisão.
@@ -55,91 +57,50 @@ Todo o planejamento segue **Spec-Driven Development (SDD)** com o GitHub Spec Ki
 
 ---
 
-## 3. A ideia original (texto meu, preservado)
+## 3. A ideia atual (texto meu, preservado)
 
-> "É possível fazer um game web e app de um jogo de TCG, voltado para programação? O usuario recebe cartinhas através de Boosters, e terá radidades de cartas de R até UR, LR será uma raridade mais rara ainda. Ajustar raridade por importancia de carta, exemplo: Python, C, Java (UR) algo assim. R (funções de cada linguagem, tipo printf(), scan, etc) Terá cartas de tudo que envolve programação, tipo Erro 404, Erro 403, Post, Get. etc. Entendeu? Como podemos fazer? Existe uma api com todos esses dados, para criar automaticamente cada carta? seria muito demorado criar uma carta um por um. Me mostre um metodo que consuma todos os dados pra criar milhares de cartas pro TCG."
+> "vamos alterar tudo e fazer uma plataforma gamificada de jogos com base no aprendizado. nosso tcc vai defender a tese do impacto dos jogos no aprendizado e como eles podem ser positivos."
+
+> "pensei em fazer um jogo de história de programação com varios puzzles e desafios, com base na historia. pensei em fazer tipo uma timeline que explica e te engloba no mundo da computacao, desde transistores ligados e desligados, gerando código binario, chegando até na criação de vídeos, com frames, pixels, cores (255, 255, 255), como o computador interpreta, etc."
+
+> "podemos sim fazer o puzzle de cor, pensei em portas logicas tambem, sendo tipo um jogo de trocar canos de lugar ou algo do tipo"
 
 ---
 
 ## 4. O que já foi decidido na fase exploratória
 
-### 4.1 Geração do catálogo
+### 4.1 Direção
 
-**Fontes.** Não existe uma API única com todos os dados. As fontes são:
+- **Protagonista:** o jogo. A plataforma é infraestrutura mínima.
+- **TCG:** fora do escopo atual, guardado em `arquivo/tcg/`.
+- **Tema de pesquisa proposto:** em que condições jogos digitais melhoram o aprendizado, e se um jogo que integra conteúdo e mecânica ajuda iniciantes a entender como o computador funciona. Ainda depende do orientador.
+- **Tese:** não presumir que jogos são sempre positivos. Resultados negativos e limitações da literatura entram na discussão.
 
-- **GitHub Linguist (`languages.yml`):** linguagens do tipo `programming`, com cor e extensões.
-- **stdlib `http` do Python (`HTTPStatus` e `HTTPMethod`):** status codes e métodos HTTP. Requer Python 3.11+.
-- **DevDocs (`https://documents.devdocs.io/{slug}/index.json`):** funções e keywords por linguagem. O DevDocs **não tem API oficial**, então o cache local é obrigatório e as requisições não podem martelar o servidor.
-- **Stack Exchange API (`/2.3/tags/{tags}/info`):** lotes de 100 tags. O limite é de ~300 requisições por dia sem key e 10 mil por dia com key gratuita.
+### 4.2 O jogo
 
-**Regras de raridade e atributos:**
+- **Fio condutor:** construção por camadas, com a história da computação como contexto de cada capítulo.
+- **Capítulos candidatos:** interruptor, lógica, números, texto, instruções, imagem e vídeo.
+- **Recorte inicial proposto:** interruptor, lógica, números e imagem, com um final curto sobre vídeo.
+- **Protótipo:** puzzle de cor RGB. Portas lógicas como puzzle de canos são desejadas; o momento de entrar é definido no `/speckit-clarify`.
+- **Identidade:** mecânicas de gênero podem servir de inspiração, mas nome, fases e arte são próprios.
 
-- A popularidade é a contagem de perguntas da tag no Stack Overflow. Ela é a régua única que permite comparar tipos diferentes.
-- A raridade é o percentil da carta dentro do seu tipo, limitado a uma faixa fixa por tipo:
+### 4.3 A plataforma
 
-  | Tipo de carta | Raridades permitidas |
-  |---|---|
-  | Linguagem | SR, SSR, UR |
-  | Status HTTP | R, SR, SSR |
-  | Método HTTP | R, SR, SSR |
-  | Função | R, SR |
+Escopo proposto: catálogo, progresso por competência, manifesto de aprendizagem e fluxo de submissão e aprovação de jogos web. Docker, painel do educador e trilhas ficam como trabalhos futuros.
 
-- LR é curadoria manual, feita por uma lista de overrides, e nunca sai da estatística.
-- Os atributos (ataque e defesa) são determinísticos: saem do hash do id da carta, dentro da banda da raridade. Um rebuild nunca altera cartas existentes.
+### 4.4 Conformidade
 
-**Filtros:**
+O jogo não tem compras, loot boxes nem coleta desnecessária de dados. Jogos de terceiros passam por curadoria. A responsabilidade legal da plataforma por eles ainda precisa de pesquisa.
 
-- Mínimo de perguntas por tipo, para cortar ruído.
-- Aliases de nome para tag, para nomes que não batem com a tag do Stack Overflow.
-- No DevDocs, só entram identificadores simples.
+### 4.5 Avaliação proposta
 
-**Risco conhecido.** Tags genéricas como `map` e `print` medem o conceito, não a função. Por isso o topo de cada tipo precisa de revisão manual.
-
-**Expansões candidatas:**
-
-- Wikidata: ano de criação, paradigma e "influenciado por", útil para sinergias entre cartas.
-- MDN browser-compat-data: Web APIs.
-- Categorias desejadas que ainda não têm fonte definida: exceções e erros de runtime, estruturas de dados, padrões de projeto, ferramentas como Git e Docker. Levante as fontes na clarificação, sem presumir que existam.
-
-### 4.2 Conteúdo e licenças
-
-- Não copie texto de documentação para as descrições das cartas. MDN e cppreference são CC-BY-SA.
-- As descrições são próprias: geradas em lote por LLM, com revisão humana e registro do processo.
-- Sem logos oficiais, que são marcas registradas. A arte é procedural, em SVG, usando a cor do Linguist.
-- Mantenha um `ATTRIBUTIONS.md` com fonte, termos de uso e licença de cada dataset. Verifique cada termo na própria fonte, sem presumir.
-
-### 4.3 Boosters, economia e conformidade legal (Brasil)
-
-**Base legal:**
-
-- A Lei 15.211/2025 (ECA Digital) está em vigor desde 17/03/2026.
-- O art. 20 veda caixas de recompensa em jogos direcionados a crianças e adolescentes ou de acesso provável por eles.
-- A definição de caixa de recompensa (art. 2º, IV) exige aquisição mediante pagamento.
-
-**Requisitos que decorrem disso:**
-
-- Os boosters são 100% gratuitos e obtidos só por gameplay.
-- Não existe nenhum caminho pago até o booster. A moeda de booster não pode ser comprada nem convertida a partir de moeda premium. Isso é garantido no ledger do backend, não só na UI.
-- A abertura de booster acontece no servidor, com CSPRNG. As drop rates ficam numa tabela versionada e são exibidas ao jogador.
-- Se houver troca de cartas ou chat entre jogadores, o art. 21 exige salvaguardas.
-- LGPD: minimização de dados.
-
-**Fora do MVP (zonas cinzentas):** booster liberado por anúncio e troca ou venda de cartas por dinheiro real.
-
-**Monetização futura, se houver:** só itens de conteúdo conhecido, como cosméticos e passe com recompensas visíveis.
-
-**Status jurídico.** O tema ainda está em disputa (há uma ADI no STF). Isto não é parecer jurídico: registre como risco no projeto e valide com o orientador.
-
-### 4.4 Premissas NÃO confirmadas (levar ao `/speckit-clarify`)
-
-- A escala de raridade é R → SR → SSR → UR → LR?
-- Qual é a stack técnica? (ver 7.3)
-- Como é uma partida? Existe batalha? Deckbuilding? PvP ou PvE?
-- O jogo **ensina** programação ou só usa o tema?
+Pré-teste, pós-teste e teste de retenção com adultos, se o orientador e o CEP aprovarem.
 
 ---
 
 ## 5. Fase 0 — Requisitos acadêmicos e setup (NÃO escreva código nesta fase)
+
+> Registro histórico: fase concluída durante o conceito TCG, antes da mudança de 2026-11-04.
 
 ### 5.1 Perguntas para mim
 
@@ -214,21 +175,7 @@ Rode `/speckit-assess-intake` → `research` → `define` → `shape` → `decid
 
 ## 6. Fase 1 — Constituição
 
-Rode com este conteúdo, ajustado ao que vier da Fase 0:
-
-```
-/speckit-constitution Projeto de TCC: TCG web e mobile com tema de programação e catálogo de cartas gerado automaticamente a partir de dados públicos. Princípios:
-I. Código limpo e modular: funções pequenas, responsabilidade única, sem código morto ou comentado.
-II. Testes primeiro no domínio crítico (pipeline, raridade, RNG de booster, economia). Testes existentes nunca são removidos. CI bloqueia merge com teste falhando.
-III. Plano antes de código: toda criação ou edição de código começa com um plano de 3 passos aprovado pelo autor. Bugs exigem diagnóstico e causa raiz antes da correção.
-IV. Sem suposições: ambiguidade vira [NEEDS CLARIFICATION] ou pergunta ao autor, nunca chute.
-V. Servidor autoritativo: abertura de booster, RNG (CSPRNG), inventário e economia só no backend. Drop rates versionadas e visíveis ao jogador.
-VI. Conformidade por design: boosters exclusivamente gratuitos e sem nenhum caminho pago (ECA Digital, Lei 15.211/2025). Minimização de dados (LGPD). Salvaguardas para qualquer interação entre usuários.
-VII. Dados e licenças: toda fonte externa usa cache, respeita rate limit e tem termos registrados em ATTRIBUTIONS.md. Nenhum texto de documentação copiado. Nenhuma marca ou logo de terceiros.
-VIII. Reprodutibilidade: catálogo determinístico e versionado (mesmas entradas geram as mesmas cartas; cartas existentes nunca mudam de identidade). Ambiente via Docker. PDF da monografia gerado por build automatizado.
-IX. Rastreabilidade acadêmica: decisões relevantes viram ADR. Cada feature registra decisões, problemas e métricas no diário de bordo. Nenhuma referência bibliográfica sem verificação.
-X. Git: branches, Conventional Commits e PR com template. Nunca commit direto na main.
-```
+A constituição vigente está em `.specify/memory/constitution.md`. Alterações seguem `/speckit-constitution`.
 
 ---
 
@@ -252,42 +199,12 @@ Repita implement → converge até o resultado ser **Converged**.
 
 ### Backlog de features (ordem sugerida — confirme comigo)
 
-1. `catalogo-cartas`: pipeline de geração do catálogo (seção 4.1).
-2. `contas-e-colecao`: cadastro, login, inventário e visualização da coleção.
-3. `boosters`: obtenção gratuita por gameplay, abertura server-side, drop rates visíveis, tratamento de duplicatas.
-4. `arte-cartas`: renderização SVG procedural.
-5. `partida`: regras do TCG, a definir no clarify. Pode ficar reduzida no MVP.
-6. `app-mobile`: empacotamento e instalação (PWA e/ou loja).
-7. `conteudo-educativo`: só se a pergunta de pesquisa exigir.
-
-### 7.1 Argumento pronto para a primeira feature
-
-```
-/speckit-specify Pipeline de geração do catálogo de cartas de um TCG de programação. Como mantenedor do jogo, quero gerar automaticamente milhares de cartas a partir de fontes públicas, porque criar carta por carta é inviável. Cada carta representa um elemento do universo da programação: linguagens, status HTTP (ex.: 404, 403), métodos HTTP (ex.: GET, POST) e funções de linguagens (ex.: printf, scanf, print). A raridade reflete a importância do elemento, medida por um indicador de popularidade comparável entre tipos, e cada tipo tem uma faixa de raridades permitida: linguagens muito importantes (Python, C, Java) chegam a UR; funções ficam nas raridades baixas; LR é escolhida manualmente e é mais rara que UR. Cada carta tem atributos de jogo que dependem da raridade e não mudam entre execuções. Rodar o pipeline de novo com os mesmos dados produz exatamente o mesmo catálogo, e cartas já existentes nunca mudam de identidade nem são apagadas se já estiverem na coleção de algum jogador. O pipeline gera um relatório com a distribuição de cartas por tipo e raridade e lista as cartas que precisam de revisão manual (ex.: nomes genéricos com popularidade inflada). O catálogo não contém texto copiado das fontes nem logos de terceiros e registra a origem de cada carta. Uma fonte que falhar não derruba a execução inteira: o relatório indica o que ficou de fora.
-```
-
-### 7.2 O que o `/speckit-clarify` precisa cobrir nessa feature
-
-Se ele não perguntar, force com um argumento de foco:
-
-- Qual é a escala de raridade?
-- O que acontece com uma carta que some da fonte? (Versionamento de catálogo.)
-- Quais fontes usar para as categorias sem API?
-- Há limite de cartas por tipo?
-- Qual é a política de revisão manual?
-- Qual é o volume-alvo de cartas no MVP?
-
-### 7.3 Proposta de stack para o `/speckit-plan`
-
-Isto é uma proposta, não uma decisão. Apresente alternativas, me pergunte e registre **um ADR por escolha**.
-
-- **Pipeline:** Python 3.12, reaproveitando a PoC.
-- **Backend:** Django + DRF + PostgreSQL, que eu já uso, **ou** Supabase (Postgres + Auth + Edge Functions). Critérios de escolha:
-  - segurança do RNG server-side;
-  - custo zero ou baixo para manter no ar até a banca;
-  - facilidade de testar.
-- **Frontend:** React + TypeScript como PWA. O app mobile sai via Capacitor ou Expo (decidir no ADR).
-- **Infra:** Docker Compose local. CI no GitHub Actions com lint, testes e build do PDF da monografia.
+1. `prototipo-jogo`: MVP jogável para mostrar ao orientador.
+2. `capitulos-jogo`: capítulos do recorte final.
+3. `avaliacao-aprendizado`: instrumentos e registro da avaliação, após orientador e CEP.
+4. `plataforma-minima`: catálogo, progresso, manifesto e publicação de jogos.
+5. `curadoria-jogos`: rubrica e fluxo de submissão e aprovação.
+6. `segundo-jogo`: jogo simples que demonstra que a plataforma é genérica.
 
 ---
 
@@ -295,7 +212,7 @@ Isto é uma proposta, não uma decisão. Apresente alternativas, me pergunte e r
 
 - **README:** visão do projeto, como rodar e arquitetura resumida.
 - **ADRs:** contexto, decisão, alternativas e consequências.
-- **Diagramas em Mermaid:** C4 (contexto, contêiner, componente), modelo ER e sequência da abertura de booster.
+- **Diagramas em Mermaid:** C4 (contexto, contêiner, componente), modelo ER e sequência da submissão de um jogo.
 - **API:** OpenAPI gerado a partir do backend.
 - **Operação:** manual do usuário com capturas de tela e guia de deploy.
 - **Arquivos de projeto:**
@@ -354,22 +271,23 @@ Ajuste ao manual da UVA e ao formato escolhido.
 
 1. **Introdução:** contexto, problema, objetivos geral e específicos, justificativa e estrutura do trabalho.
 2. **Fundamentação teórica:**
-   - TCGs e sistemas de raridade;
+   - jogos digitais e teorias da aprendizagem;
    - gamificação e aprendizagem baseada em jogos;
    - engenharia de requisitos e SDD com agentes de IA;
-   - integração de dados abertos (ETL, APIs, rate limit, licenças);
+   - plataformas de jogos, curadoria e isolamento de código de terceiros;
    - aspectos legais: ECA Digital, Marco Legal dos Jogos Eletrônicos (Lei 14.852/2024) e LGPD.
-3. **Trabalhos relacionados:** jogos e plataformas de ensino de programação e TCGs educativos, com tabela comparativa.
+3. **Trabalhos relacionados:** jogos e plataformas de ensino de computação, com tabela comparativa.
 4. **Metodologia:** pesquisa aplicada; processo SDD com Spec Kit (fases, artefatos, quality gates); critérios e instrumentos de avaliação.
 5. **Desenvolvimento:**
    - requisitos (a partir dos `spec.md`);
    - arquitetura (a partir dos `plan.md` e ADRs);
-   - pipeline do catálogo e modelagem de dados;
-   - economia de boosters e conformidade legal;
+   - design do jogo e dos puzzles;
+   - plataforma, manifesto e curadoria;
+   - conformidade legal;
    - implementação.
 6. **Avaliação e resultados:**
    - testes automatizados e cobertura;
-   - métricas do catálogo: cartas por tipo e raridade, tempo de geração, taxa de tags sem correspondência;
+   - resultados da avaliação de aprendizado, se aprovada;
    - teste de usabilidade (ex.: SUS), se aprovado;
    - análise do processo SDD, com dados do diário de bordo.
 7. **Conclusão:** contribuições, limitações e trabalhos futuros.
@@ -412,9 +330,9 @@ Se houver teste de usabilidade ou questionário:
 - **Roteiro de fala.**
 - **Demonstração:** demo ao vivo, com um vídeo gravado de backup.
 - **Perguntas prováveis da banca**, com respostas apoiadas nos artefatos:
-  - Por que o Stack Overflow como métrica? Que vieses isso traz?
-  - Como garantir que o RNG não é manipulável?
-  - O booster é loot box perante o ECA Digital?
+  - Jogos ensinam mais do que os métodos tradicionais? Em que condições?
+  - Como separar o efeito do jogo do efeito da novidade?
+  - Como a curadoria protege os jogadores de jogos de terceiros?
   - Quais são as limitações do trabalho?
 
 ---
@@ -424,8 +342,7 @@ Se houver teste de usabilidade ou questionário:
 **Software:**
 
 - [ ] Repositório com README, CI verde, testes e tag de release da versão defendida
-- [ ] Catálogo gerado + relatório de distribuição
-- [ ] Web publicada + app instalável
+- [ ] Jogo e plataforma publicados na web
 - [ ] Artefatos SDD de todas as features, convergidos
 
 **Documentação técnica:**
@@ -441,6 +358,6 @@ Se houver teste de usabilidade ou questionário:
 
 ---
 
-## 12. Primeira ação
+## 12. Próxima ação
 
-Leia este arquivo inteiro e confirme em até 5 linhas o que entendeu. Depois execute **somente a Fase 0**: faça as perguntas da seção 5.1 e me passe os comandos de setup. Não crie código ainda.
+A Fase 0 foi concluída e o conceito mudou. Siga pela Fase 2, uma feature por vez, começando por `prototipo-jogo`.
