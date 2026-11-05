@@ -1,4 +1,4 @@
-# PROMPT — TCC: jogo de puzzles sobre como o computador funciona (repositório: `tcg-dev`; nome do jogo a definir)
+# PROMPT — TCC: jogo de puzzles sobre como o computador funciona (repositório: `tcg-dev`; nome provisório do jogo: Reboot)
 
 > **Como usar:** salve este arquivo na raiz do repositório como `PROMPT_TCC.md`, abra o Claude Code na pasta e diga:
 > "Leia o PROMPT_TCC.md e execute somente a Fase 0."
@@ -82,6 +82,7 @@ O conceito anterior, um TCG de programação, está guardado em `arquivo/tcg/` c
 - **Capítulos candidatos:** interruptor, lógica, números, texto, instruções, imagem e vídeo.
 - **Recorte inicial proposto:** interruptor, lógica, números e imagem, com um final curto sobre vídeo.
 - **Protótipo:** puzzle de cor RGB. Portas lógicas como puzzle de canos são desejadas; o momento de entrar é definido no `/speckit-clarify`.
+- **Nome provisório:** Reboot. A premissa narrativa de religar o mundo a partir do transistor ainda é uma proposta para o `/speckit-clarify`. A disponibilidade do nome não foi verificada.
 - **Identidade:** mecânicas de gênero podem servir de inspiração, mas nome, fases e arte são próprios.
 
 ### 4.3 A plataforma
