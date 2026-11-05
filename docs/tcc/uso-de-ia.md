@@ -33,3 +33,13 @@ Formato de cada entrada: data, fase/feature, o que foi feito, o que a IA gerou v
 **Decisões do autor (não da IA):** todas as respostas. Em algumas, o autor foi além das opções oferecidas: volume mínimo definido pelo topo de cada tipo, e não pelos 1.000 sugeridos; passiva "única" com variação obrigatória em pelo menos um detalhe; revisão de todas as cartas SR+ com ajuste. Nos casos em que o autor aceitou a recomendação da IA (ex.: nomes dos seis elementos, regra de elemento por classe HTTP, cortes iniciais de raridade), isso ficou explícito na pergunta. Duas interpretações da IA sobre respostas do autor (D1 e D12) foram submetidas a ele e confirmadas.
 
 **Revisão:** o autor respondeu a cada pergunta e validou as 12 premissas e as 2 interpretações por meio de perguntas estruturadas na sessão. A leitura integral do `spec.md` pelo autor não foi registrada nesta sessão e fica pendente antes da PR da feature.
+
+---
+
+## 2026-11-04 — Brainstorm e mudança de conceito
+
+**O que foi feito:** Claude Code (modelo Opus 5.5, via extensão VSCode) participou do brainstorm, sugeriu a reformulação da tese, o fio condutor por camadas, o recorte e a estrutura de capítulos. Também arquivou o material do TCG e redigiu as atualizações de `PROMPT_TCC.md`, `CLAUDE.md`, `README.md`, `ATTRIBUTIONS.md` e da constituição.
+
+**Decisões do autor (não da IA):** a mudança de conceito, a ideia do jogo e sua linha do transistor ao vídeo, o jogo como protagonista, o puzzle de cor, as portas lógicas como canos e a guarda do TCG. Referências citadas no brainstorm vieram de memória, não foram verificadas e não entraram no `.bib`.
+
+**Revisão:** pendente; o autor revisará as alterações na PR.

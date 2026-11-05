@@ -85,3 +85,21 @@ Rodado fora de ordem em relação ao `PROMPT_TCC.md` (a avaliação de ideia é 
 **Tempo gasto:** não cronometrado.
 
 **Métricas:** spec com 5 user stories, 43 requisitos funcionais (FR-001 a FR-040, mais FR-006a, FR-015a e FR-020a) e 14 critérios de sucesso.
+
+---
+
+## 2026-11-04 — Mudança de conceito: do TCG para o jogo de puzzles sobre computação
+
+**Decisões:**
+- O autor trocou o TCG por um jogo de puzzles em camadas, do transistor ao vídeo, como protagonista do TCC.
+- Uma plataforma curada mínima de jogos educativos passa a ser infraestrutura. O TCG fica guardado como possível jogo futuro.
+- A tese foi reformulada de "jogos são positivos" para "em que condições jogos melhoram o aprendizado", ainda pendente de validação com o orientador.
+- O protótipo começa pelo puzzle de cor RGB. Portas lógicas como puzzle de canos são desejadas.
+- Constituição emendada para a versão 2.0.0.
+
+**Problemas encontrados:**
+- O `plan.md` da feature `001-catalogo-cartas` ainda era o template sem preencher.
+
+**Tempo gasto:** não cronometrado.
+
+**Métricas:** N/A (mudança de conceito).
