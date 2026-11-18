@@ -1,4 +1,4 @@
-# CLAUDE.md — tcg-dev (jogo de puzzles sobre computação)
+# CLAUDE.md — reboot-tcc (Reboot, jogo de puzzles sobre computação)
 
 Este projeto é o TCC (Projeto Técnico) de Luiz Fernando Magalhães da Silva e Renato de Azevedo Caldas, Ciência da Computação, UVA. A especificação completa e o histórico de decisões estão em [`PROMPT_TCC.md`](PROMPT_TCC.md) — leia-o antes de qualquer trabalho relevante. Este arquivo contém apenas as regras de trabalho inegociáveis, copiadas da seção 2 do prompt.
 
@@ -43,4 +43,4 @@ O jogo não tem compras, loot boxes nem coleta desnecessária de dados, e jogos 
 
 ## Material arquivado
 
-`arquivo/` guarda conceitos fora do projeto ativo, como o TCG. Não leia nem use essa pasta sem pedido do autor.
+`arquivo/` guarda conceitos fora do projeto ativo, como a documentação do TCG, que será um projeto separado. Não leia, não use e não apague essa pasta sem pedido do autor.

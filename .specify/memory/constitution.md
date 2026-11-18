@@ -1,6 +1,6 @@
-# tcg-dev Constitution
+# reboot-tcc Constitution
 
-Projeto de TCC: jogo web de puzzles sobre como o computador funciona, protagonista do trabalho,
+Projeto de TCC: Reboot, jogo web de puzzles sobre como o computador funciona, protagonista do trabalho,
 publicado em uma plataforma curada mínima de jogos educativos. Ver `PROMPT_TCC.md` na raiz do repositório para o
 roteiro completo (fases, backlog de features, requisitos acadêmicos); esta constituição registra
 apenas os princípios não-negociáveis de engenharia derivados dele.
@@ -113,4 +113,4 @@ princípios antes do merge. Desvios identificados no `/speckit-analyze` ou no `/
 voltam para a fase de origem (specify/clarify, plan ou tasks) para correção — nunca são ignorados
 silenciosamente.
 
-**Version**: 2.0.0 | **Ratified**: 2026-09-27 | **Last Amended**: 2026-11-04
+**Version**: 2.0.1 | **Ratified**: 2026-09-27 | **Last Amended**: 2026-11-18
