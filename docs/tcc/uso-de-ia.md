@@ -46,6 +46,16 @@ Formato de cada entrada: data, fase/feature, o que foi feito, o que a IA gerou v
 
 ---
 
+## 2026-11-18 — Feature `002-prototipo-reboot`: specify e clarify
+
+**O que foi feito:** Claude Code (modelo Opus 5.5, via extensão VSCode) redigiu a spec inicial no `/speckit-specify` e, no `/speckit-clarify` de 2026-11-18, formulou 5 perguntas com opções e recomendação e integrou as respostas à spec.
+
+**Decisões do autor (não da IA):** todas as respostas. O autor não seguiu a recomendação da IA na interação com os canos (escolheu arrastar peças) nem na apresentação da cor (definiu a comparação lado a lado com retorno "maior" ou "menor"). A sessão de clarificação de 2026-11-17 não foi conduzida nesta conversa.
+
+**Revisão:** pendente; o autor revisará a spec antes do `/speckit-plan`.
+
+---
+
 ## 2026-11-18 — Preenchimento do template DOCX da UVA
 
 **O que foi feito:** Claude Code (modelo Opus 5.5, via extensão VSCode) preencheu o template da UVA em `docs/tcc/monografia/Reboot_Projeto_Tecnico.docx`:

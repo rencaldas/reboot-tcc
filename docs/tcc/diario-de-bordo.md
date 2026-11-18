@@ -103,3 +103,22 @@ Rodado fora de ordem em relação ao `PROMPT_TCC.md` (a avaliação de ideia é 
 **Tempo gasto:** não cronometrado.
 
 **Métricas:** N/A (mudança de conceito).
+
+---
+
+## 2026-11-18 — Fase 2: feature `002-prototipo-reboot` (specify e clarify)
+
+**Decisões:**
+- Nome definitivo do jogo: Reboot. O protótipo tem 4 fases, 2 de cor e 2 de canos.
+- Narrativa com personagem guia original; cada fase concluída devolve algo visível ao mundo.
+- Canos montados por arrastar peças de uma bandeja para a grade, com alternativa por seleção para acessibilidade.
+- Arte e áudio provisórios no protótipo; arte final de assets livres de terceiros e de IA, em feature futura.
+- Cor exige valor exato, com comparação lado a lado e retorno "maior" ou "menor" por canal ao confirmar.
+
+**Problemas encontrados:**
+- A exigência de valor exato tornava a fase de cor impossível só com comparação visual; resolvido com o retorno por canal.
+- A hospedagem no GitHub Pages ficou registrada no FR-001, o que é detalhe de implementação na spec.
+
+**Tempo gasto:** não cronometrado.
+
+**Métricas:** spec com 3 user stories, 22 requisitos funcionais e 7 critérios de sucesso; 20 clarificações em duas sessões.
