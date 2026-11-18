@@ -53,3 +53,18 @@ Formato de cada entrada: data, fase/feature, o que foi feito, o que a IA gerou v
 **Decisões do autor (não da IA):** todas as respostas. O autor não seguiu a recomendação da IA na interação com os canos (escolheu arrastar peças) nem na apresentação da cor (definiu a comparação lado a lado com retorno "maior" ou "menor"). A sessão de clarificação de 2026-11-17 não foi conduzida nesta conversa.
 
 **Revisão:** pendente; o autor revisará a spec antes do `/speckit-plan`.
+
+---
+
+## 2026-11-18 — Preenchimento do template DOCX da UVA
+
+**O que foi feito:** Claude Code (modelo Opus 5.5, via extensão VSCode) preencheu o template da UVA em `docs/tcc/monografia/Reboot_Projeto_Tecnico.docx`:
+- elementos pré-textuais com os dados fornecidos pelos autores;
+- estrutura de capítulos, sumário e lista de siglas;
+- rascunhos de resumo, abstract e dos capítulos 1 a 5, marcados como `[RASCUNHO-IA]`;
+- capítulos 6 e 7 só com tópicos, marcados como `[A REDIGIR]`;
+- referências levantadas e conferidas em busca na web, listadas em `referencias-verificadas.md`. Afirmações não confirmadas nos resumos das fontes estão marcadas com `[VERIFICAR]`.
+
+**Decisões dos autores (não da IA):** título, coautoria, ordem alfabética dos autores, titulação do orientador, ano, formato Projeto Técnico, adoção do template DOCX e adiamento de dedicatória, agradecimentos e epígrafe.
+
+**Revisão:** pendente. Todo texto marcado como rascunho será reescrito pelos autores.

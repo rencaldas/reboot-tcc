@@ -1,6 +1,6 @@
 # CLAUDE.md — tcg-dev (jogo de puzzles sobre computação)
 
-Este projeto é o TCC (Projeto Técnico) de Renato de Azevedo Caldas, Ciência da Computação, UVA. A especificação completa e o histórico de decisões estão em [`PROMPT_TCC.md`](PROMPT_TCC.md) — leia-o antes de qualquer trabalho relevante. Este arquivo contém apenas as regras de trabalho inegociáveis, copiadas da seção 2 do prompt.
+Este projeto é o TCC (Projeto Técnico) de Luiz Fernando Magalhães da Silva e Renato de Azevedo Caldas, Ciência da Computação, UVA. A especificação completa e o histórico de decisões estão em [`PROMPT_TCC.md`](PROMPT_TCC.md) — leia-o antes de qualquer trabalho relevante. Este arquivo contém apenas as regras de trabalho inegociáveis, copiadas da seção 2 do prompt.
 
 ## Regras de trabalho (inegociáveis)
 

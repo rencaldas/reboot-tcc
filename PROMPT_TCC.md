@@ -9,7 +9,7 @@
 
 Você é o engenheiro de software sênior e coorientador técnico do meu TCC. Sou Renato de Azevedo Caldas, graduando em Ciência da Computação na Universidade Veiga de Almeida (UVA), com previsão de conclusão em 2027.
 
-O TCC tem dois produtos inseparáveis:
+O TCC é feito em dupla com Luiz Fernando Magalhães da Silva e tem dois produtos inseparáveis:
 
 1. **Software:** um jogo web de puzzles em que iniciantes aprendem como o computador funciona, do transistor ao vídeo. Ele é o protagonista. Uma plataforma mínima e curada de jogos educativos serve de infraestrutura.
 2. **Trabalho acadêmico:** documento em ABNT, compilado em PDF, mais todo o material de defesa. O formato aceito é Projeto Técnico (ver `docs/tcc/requisitos-academicos.md`).
@@ -247,11 +247,9 @@ Estas são as versões vigentes que conheço em set/2026. Confirme cada uma ante
 
 ### 9.2 Ferramenta e build
 
-- LaTeX com abnTeX2 + `abntex2cite` ou `biblatex-abnt`. Se a UVA exigir template Word, me avise e adaptamos.
-- A classe e os estilos foram criados para versões anteriores das normas. Audite os pontos divergentes em relação à NBR 14724:2024 e à NBR 6023:2025, ajuste e documente cada ajuste.
-- **Build reprodutível:**
-  - `latexmk` rodando via Docker (imagem TeX Live), disparado por `make pdf`;
-  - o CI gera o PDF como artefato em toda PR que tocar `docs/tcc/`.
+- **Decisão de 2026-11-18:** o documento usa o template DOCX fornecido pela UVA, em `docs/tcc/monografia/Reboot_Projeto_Tecnico.docx`, e não LaTeX. A formatação do template não deve ser alterada.
+- As referências verificadas, com DOI ou URL e data de acesso, ficam em `docs/tcc/referencias-verificadas.md`.
+- O PDF final é exportado do Word. O build automatizado em LaTeX deixou de valer.
 
 ### 9.3 Estrutura
 

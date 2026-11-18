@@ -1,6 +1,6 @@
 # tcg-dev
 
-Jogo web de puzzles em que iniciantes aprendem como o computador funciona, do transistor ao vídeo, publicado em uma plataforma curada de jogos educativos. Projeto Técnico (TCC) de Renato de Azevedo Caldas — Ciência da Computação, Universidade Veiga de Almeida (UVA).
+Jogo web de puzzles em que iniciantes aprendem como o computador funciona, do transistor ao vídeo, publicado em uma plataforma curada de jogos educativos. Projeto Técnico (TCC) de Luiz Fernando Magalhães da Silva e Renato de Azevedo Caldas — Ciência da Computação, Universidade Veiga de Almeida (UVA).
 
 ## Status
 
