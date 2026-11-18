@@ -35,6 +35,7 @@
 - Q: De onde virão a arte e o áudio do protótipo? → A: No início, placeholders simples. A arte e o áudio finais virão depois, de assets livres de terceiros e de assets gerados por IA.
 - Q: Quão perto da cor-alvo o jogador precisa chegar? → A: Valor exato nos três canais.
 - Q: Como a cor-alvo é apresentada ao jogador? → A: Lado a lado com a cor do jogador. Ao apertar "Confirmar cor", cada canal errado recebe só "maior" ou "menor" em relação ao número inserido, sem revelar o valor.
+- Q: Há limite de confirmações erradas? → A: Em cada etapa, a primeira fase não tem limite e a segunda permite 3 confirmações erradas; na terceira, o jogador perde e a fase recomeça do zero. Fases com limite não podem ser puladas, mas mantêm as dicas.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -92,7 +93,8 @@ O orientador recebe um link, abre o jogo sem cadastro nem instalação e percorr
 ### Edge Cases
 
 - Ao recarregar ou fechar a página, o progresso continua salvo no navegador. Se o dado salvo estiver ausente ou corrompido, o jogo recomeça do início sem erro, e o jogador pode apagar o progresso para recomeçar.
-- Quem travar em uma fase recebe dicas graduais e pode pular a fase, para não abandonar a demonstração.
+- Quem travar recebe dicas graduais em qualquer fase. Só pode pular a primeira fase de cada etapa; na segunda, pode recomeçar quantas vezes quiser.
+- Ao perder uma fase com limite, o contador de erros volta a zero e a fase recomeça, sem afetar as fases já concluídas.
 - Em tela de celular, o jogo é projetado para a orientação retrato, com controles utilizáveis por toque.
 - Quem não distingue bem as cores consegue resolver as fases usando os valores numéricos.
 - O estado dos canos nunca depende só da cor: o sinal também é indicado por forma, movimento ou texto.
@@ -105,7 +107,7 @@ O orientador recebe um link, abre o jogo sem cadastro nem instalação e percorr
 
 - **FR-001**: O jogo MUST abrir por um link em navegadores atuais de computador e celular, sem cadastro, instalação ou pagamento, publicado como site estático no GitHub Pages.
 - **FR-002**: O jogo MUST apresentar a premissa de que o mundo digital apagou e o jogador o religa, com opção de pular. Cada fase concluída MUST devolver algo visível ao mundo, e um personagem guia original MUST comentar o progresso em falas curtas, que podem ser puladas.
-- **FR-003**: O jogo MUST oferecer uma etapa de cor antes da etapa de canos, e permitir pular fases sem bloquear o avanço.
+- **FR-003**: O jogo MUST oferecer uma etapa de cor antes da etapa de canos. A primeira fase de cada etapa MUST não ter limite de tentativas e poder ser pulada. A segunda fase de cada etapa MUST permitir no máximo 3 confirmações erradas; na terceira, o jogador perde e a fase recomeça do zero. Fases com limite MUST NOT poder ser puladas, mas MUST manter as dicas.
 - **FR-004**: A etapa de cor MUST permitir ajustar três canais, de 0 a 255, com resultado e valores visíveis em tempo real, e MUST oferecer ajuste de 1 em 1 e digitação do valor, para que o valor exato seja alcançável também no celular.
 - **FR-005**: Cada fase de cor MUST ter uma cor-alvo definida exibida lado a lado com a cor atual do jogador, e só ser concluída quando os três canais forem exatamente iguais aos dela. A conferência MUST acontecer quando o jogador aperta "Confirmar cor", e cada canal errado MUST receber apenas "maior" ou "menor" em relação ao valor inserido.
 - **FR-006**: A etapa de cor MUST relacionar os valores RGB a pixels de uma imagem.
@@ -134,7 +136,7 @@ O orientador recebe um link, abre o jogo sem cadastro nem instalação e percorr
 - **Junção**: peça com um comportamento lógico (AND, OR ou NOT).
 - **Personagem guia**: personagem original que apresenta a premissa e comenta o progresso, sem identidade de outros jogos.
 - **Fato histórico**: texto exibido no jogo, associado à sua fonte.
-- **Progresso salvo**: fases concluídas ou puladas, guardadas no navegador do jogador, sem identificá-lo.
+- **Progresso salvo**: fases concluídas ou puladas, e confirmações erradas da fase em andamento, guardadas no navegador do jogador, sem identificá-lo.
 
 ## Success Criteria *(mandatory)*
 

@@ -31,4 +31,5 @@
 
 ## Notes
 
-- Validação feita pela IA na geração da spec. A divisão de fases e a narrativa seguem como premissas a confirmar no `/speckit-clarify`.
+- Validação feita pela IA; divisão de fases e narrativa confirmadas no `/speckit-clarify`.
+- Os dois itens de detalhe de implementação ficam desmarcados de propósito: o autor decidiu manter o GitHub Pages no FR-001 como restrição do projeto.
