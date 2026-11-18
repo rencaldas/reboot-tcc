@@ -14,7 +14,8 @@ Respostas às perguntas da Fase 0 (`PROMPT_TCC.md`, seção 5.1), registradas em
 
 ## 3. Orientação e cronograma
 
-- **Orientador:** Prof. Erick da Silva Delvizio.
+- **Autores:** Luiz Fernando Magalhães da Silva (matrícula 1230203487) e Renato de Azevedo Caldas (matrícula 1230210597), a partir de 2026-11-18.
+- **Orientador:** Prof. DSc. Erick da Silva Delvizio, confirmado pelo próprio orientador em 2026-11-18; oficialização por e-mail pendente.
 - **Coorientador:** Pendente.
 - **Datas de entrega** (pré-projeto, qualificação, versão final, defesa): Pendente.
 - **Composição da banca:** Pendente.
@@ -22,8 +23,8 @@ Respostas às perguntas da Fase 0 (`PROMPT_TCC.md`, seção 5.1), registradas em
 ## 4. Formato, idioma, limites e depósito
 
 - **Idioma:** Português.
-- **Limite de páginas:** Pendente.
-- **Formato do documento final:** pode ser monografia **ou** documentação do projeto (compatível com o formato "Projeto Técnico" do item 1) — a escolha exata entre os dois fica para quando o manual da UVA ou o orientador confirmarem.
+- **Extensão:** o template da UVA exige no mínimo 40 páginas, da introdução à conclusão, incluindo pré-textuais e referências e sem contar glossário, apêndices e anexos. Limite máximo: pendente.
+- **Formato do documento final:** Projeto Técnico, no template DOCX da UVA, com conclusão em 2027 (decisão dos autores em 2026-11-18).
 - **Artigo ou pôster adicional exigido:** Pendente.
 - **Depósito no repositório institucional:** Pendente.
 
@@ -56,7 +57,7 @@ Renato **tem acesso** às normas vigentes (via UVA e/ou aquisição própria). *
 - [ ] Coorientador, se houver.
 - [ ] Datas de entrega (pré-projeto, qualificação, versão final, defesa).
 - [ ] Composição da banca.
-- [ ] Limite de páginas.
+- [ ] Limite máximo de páginas, se houver.
 - [ ] Exigência de artigo/pôster adicional.
 - [ ] Confirmação sobre depósito no repositório institucional.
 - [ ] Política formal de uso de IA generativa (UVA + orientador).
