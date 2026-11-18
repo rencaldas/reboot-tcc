@@ -16,7 +16,7 @@ O TCC é feito em dupla com Luiz Fernando Magalhães da Silva e tem dois produto
 
 Todo o planejamento segue **Spec-Driven Development (SDD)** com o GitHub Spec Kit: https://github.com/github/spec-kit
 
-O conceito anterior, um TCG de programação, está guardado em `arquivo/tcg/` como possível jogo futuro. Não leia essa pasta sem pedido do autor.
+O conceito anterior, um TCG de programação, será um projeto separado no futuro e não faz parte do TCC. Só a documentação dele está guardada em `arquivo/tcg/`. Não leia essa pasta sem pedido do autor.
 
 ---
 
@@ -72,7 +72,7 @@ O conceito anterior, um TCG de programação, está guardado em `arquivo/tcg/` c
 ### 4.1 Direção
 
 - **Protagonista:** o jogo. A plataforma é infraestrutura mínima.
-- **TCG:** fora do escopo atual, guardado em `arquivo/tcg/`.
+- **TCG:** projeto separado e futuro, fora do TCC. Só a documentação está guardada em `arquivo/tcg/` e não pode ser apagada.
 - **Tema de pesquisa proposto:** em que condições jogos digitais melhoram o aprendizado, e se um jogo que integra conteúdo e mecânica ajuda iniciantes a entender como o computador funciona. Ainda depende do orientador.
 - **Tese:** não presumir que jogos são sempre positivos. Resultados negativos e limitações da literatura entram na discussão.
 

@@ -43,4 +43,4 @@ O jogo não tem compras, loot boxes nem coleta desnecessária de dados, e jogos 
 
 ## Material arquivado
 
-`arquivo/` guarda conceitos fora do projeto ativo, como o TCG. Não leia nem use essa pasta sem pedido do autor.
+`arquivo/` guarda conceitos fora do projeto ativo, como a documentação do TCG, que será um projeto separado. Não leia, não use e não apague essa pasta sem pedido do autor.

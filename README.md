@@ -88,7 +88,7 @@ reboot-tcc/
 
 ## Conceito anterior
 
-O projeto começou como um jogo de cartas colecionáveis (TCG) sobre programação. Esse material está guardado em [`arquivo/tcg/`](arquivo/tcg/README.md) e na tag `arquivo/tcg-v0`, como possível jogo futuro da plataforma.
+O projeto começou como um jogo de cartas colecionáveis (TCG) sobre programação. Ele será um projeto separado no futuro e não faz parte do TCC. A documentação está guardada em [`arquivo/tcg/`](arquivo/tcg/README.md) e na tag `arquivo/tcg-v0`.
 
 ## Licença
 
