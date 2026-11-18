@@ -43,3 +43,13 @@ Formato de cada entrada: data, fase/feature, o que foi feito, o que a IA gerou v
 **Decisões do autor (não da IA):** a mudança de conceito, a ideia do jogo e sua linha do transistor ao vídeo, o jogo como protagonista, o puzzle de cor, as portas lógicas como canos e a guarda do TCG. Referências citadas no brainstorm vieram de memória, não foram verificadas e não entraram no `.bib`.
 
 **Revisão:** pendente; o autor revisará as alterações na PR.
+
+---
+
+## 2026-11-18 — Feature `002-prototipo-reboot`: specify e clarify
+
+**O que foi feito:** Claude Code (modelo Opus 5.5, via extensão VSCode) redigiu a spec inicial no `/speckit-specify` e, no `/speckit-clarify` de 2026-11-18, formulou 5 perguntas com opções e recomendação e integrou as respostas à spec.
+
+**Decisões do autor (não da IA):** todas as respostas. O autor não seguiu a recomendação da IA na interação com os canos (escolheu arrastar peças) nem na apresentação da cor (definiu a comparação lado a lado com retorno "maior" ou "menor"). A sessão de clarificação de 2026-11-17 não foi conduzida nesta conversa.
+
+**Revisão:** pendente; o autor revisará a spec antes do `/speckit-plan`.
