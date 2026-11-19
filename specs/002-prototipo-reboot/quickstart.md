@@ -43,9 +43,11 @@ Faça cada roteiro numa janela anônima, para começar sem progresso salvo.
 
 1. **Abertura (US3)**: abra o link publicado. Clique em "Começar" em até 30 segundos (SC-001). Confirme que
    a premissa pode ser pulada e que não há cadastro, anúncio nem pedido de dado.
-2. **Cor (US1)**: na 1ª fase, erre um canal de propósito e confirme. O canal recebe só "maior" ou "menor".
-   Acerte com os botões de 1 em 1 e digitando o valor. Na 2ª fase, erre 3 vezes: a fase continua. Erre
-   a 4ª: a fase recomeça do zero e a 1ª continua concluída. Ao final, veja a imagem de pixels com os valores.
+2. **Cor (US1)**: na 1ª fase, os canais começam em (0, 0, 0) e nenhuma dica está aberta. Erre um canal de
+   propósito e confirme: o canal recebe só "maior" ou "menor" e a 1ª dica é liberada.
+   Acerte com os botões de 1 em 1 e digitando o valor. Na 2ª fase, confira o aviso de que é possível errar 3 vezes e o
+   texto de tentativas restantes. Erre 3 vezes: a fase continua e o texto acompanha cada erro. Erre
+   a 4ª: a fase recomeça do zero, com canais em (0, 0, 0) e sem dicas abertas, e a 1ª continua concluída. Ao final, veja a imagem de pixels com os valores.
 3. **Canos (US2)**: na fase de prever, arraste peças, solte uma fora da grade (ela volta à bandeja), marque
    as previsões e confirme. Na fase de escolher, ligue o caminho com a junção errada: o teste mostra quais
    combinações falharam e a fase não é concluída.

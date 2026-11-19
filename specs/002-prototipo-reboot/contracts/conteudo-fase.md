@@ -43,7 +43,7 @@ Cada invariante tem um teste automatizado que roda no CI. Um conteúdo inválido
   aceitas pela validação.
 - Cada fase de canos tem soluções incorretas de teste, e todas são rejeitadas. Entre elas, obrigatoriamente:
   - caminho ligado com a junção errada (FR-010);
-  - caminho aberto;
+  - caminho aberto, que é rejeitado como confirmação incompleta, sem contar como erro (FR-009);
   - no tipo `prever`, previsões erradas sobre um circuito correto.
 - Uma solução alternativa correta, diferente da de referência, é aceita.
 

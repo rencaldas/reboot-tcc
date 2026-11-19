@@ -40,7 +40,7 @@ em até 30 segundos depois de abrir o link (SC-001), o que pede um bundle pequen
 
 **Constraints**:
 
-- WCAG AA, teclado, toque e leitor de tela (FR-018).
+- WCAG 2.2 nível AA, teclado, toque e leitor de tela, sem bloquear a orientação da tela (FR-018).
 - Nenhuma requisição a outros domínios (FR-015, Princípio VI).
 - Nenhum arquivo de arte ou áudio de terceiros no protótipo (FR-022).
 - Determinismo (FR-017).

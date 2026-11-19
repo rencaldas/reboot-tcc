@@ -12,7 +12,7 @@ O protótipo do Reboot é um jogo web com 4 fases de puzzle: duas de cor RGB e d
 comportam como portas lógicas. A spec exige:
 
 - abrir por um link, sem cadastro nem instalação;
-- funcionar por toque, teclado e leitor de tela, no nível AA da WCAG;
+- funcionar por toque, teclado e leitor de tela, no nível AA da WCAG 2.2;
 - ter alternativa por seleção a toda ação de arrastar;
 - ser determinístico e versionado;
 - ter testes escritos antes da implementação no domínio crítico.

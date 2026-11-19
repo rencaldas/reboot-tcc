@@ -97,7 +97,8 @@ A orientação de cada peça vem definida no conteúdo e o jogador não gira pe�
 
 ### Tentativa de cor
 
-`{ atual: Cor, ultimaConferencia: Conferencia | null }`, em que a conferência de cada canal é
+`{ atual: Cor, ultimaConferencia: Conferencia | null }`. Toda fase de cor começa, e recomeça depois de uma
+derrota, com `atual = { r: 0, g: 0, b: 0 }` e sem conferência (FR-004). A conferência de cada canal é
 `'certo' | 'maior' | 'menor'`:
 
 - `'maior'`: o valor certo está acima do inserido.
@@ -107,17 +108,24 @@ O valor certo nunca é exposto (FR-005).
 
 ### Montagem de canos
 
-`{ grade: Map<Posicao, PecaPosicionada>, bandeja: Peca[], selecionada: Peca | null, previsoes: Bit[] | null }`
+`{ grade: Map<Posicao, PecaPosicionada>, bandeja: Peca[], selecionada: Peca | null, previsoes: (Bit | null)[] | null }`
 
 - Soltar uma peça fora da grade, ou numa célula ocupada por peça fixa, devolve a peça à bandeja sem alterar
   o restante da grade.
-- Em fase do tipo `prever`, `previsoes` tem um bit por combinação, e todas precisam estar marcadas antes de
-  confirmar.
+- Em fase do tipo `prever`, `previsoes` tem um bit ou "em branco" por combinação. Confirmar com alguma em
+  branco é uma confirmação incompleta (ver abaixo).
 
 ### Resultado do teste de canos
 
 Por combinação: `{ entradas, esperada, obtida: Bit | 'desconectado', passou }`. A fase passa quando todas
 as combinações passam. No tipo `prever`, também exige que cada previsão seja igual à `obtida`.
+
+A confirmação tem três desfechos:
+
+- **incompleta**: alguma combinação dá `'desconectado'`, ou há previsão em branco. Não conta como erro
+  (FR-009).
+- **errada**: está completa, mas alguma combinação ou previsão falha. Conta como erro.
+- **certa**: tudo passa.
 
 ### Contador da fase
 
@@ -143,6 +151,7 @@ Nenhum campo identifica o jogador (FR-021). Formato e regras de leitura estão n
 ```text
 bloqueada ──(fase anterior concluída ou pulada)──▶ disponível ──(abrir)──▶ em andamento
 
+em andamento ──(confirmação incompleta: caminho aberto ou previsão em branco)─▶ em andamento (sem mudança)
 em andamento ──(confirmação certa)──────────────────────────────▶ concluída
 em andamento ──(pular; só se podePular)─────────────────────────▶ pulada
 em andamento ──(confirmação errada; sem limite, ou erros < limite)─▶ em andamento (erros + 1)
@@ -154,7 +163,9 @@ perdida ──(automático)─────────────────�
 - Com `semLimiteCor` ligado, o limite efetivo das fases de cor é `null`. O fato de a fase poder ser pulada
   continua a vir do conteúdo (`podePular`), então a 2ª fase de cor segue sem poder ser pulada.
 - Perder não altera as fases já concluídas.
-- As dicas ficam disponíveis em qualquer estado em andamento (FR-003, FR-011).
+- As dicas liberadas são derivadas do contador: `dicasLiberadas = min(errosConfirmacao, 3)`. Nenhuma dica
+  antes do 1º erro; a derrota zera o contador e, com ele, as dicas (FR-011). Como o contador fica salvo, as
+  dicas liberadas continuam disponíveis ao recarregar a página no meio da fase.
 
 ### Jornada
 
