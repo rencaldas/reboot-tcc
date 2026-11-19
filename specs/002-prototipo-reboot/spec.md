@@ -22,7 +22,7 @@
 - Q: O progresso some ao recarregar a página? → A: Não. Fica salvo no próprio navegador, sem dado pessoal.
 - Q: Qual o estilo visual? → A: Desenhado à mão, bonito, com personalidade e satisfatório de ver, inspirado no estilo de Hollow Knight, sem copiar arte, personagens ou identidade (FR-016).
 - Q: O jogo terá som? → A: Sim, com efeitos e música. Os arquivos de áudio ainda não existem.
-- Q: Onde o jogo fica hospedado? → A: Site estático no GitHub Pages. Se surgir algum problema, o autor decide a mudança.
+- Q: Onde o jogo fica hospedado? → A: Site estático no GitHub Pages. Se surgir algum problema, o autor decide a mudança. (Decisão técnica; detalhada no plan.md.)
 - Q: Qual a orientação no celular? → A: Retrato.
 - Q: A acessibilidade inclui leitor de tela? → A: Sim, além de teclado, toque e contraste/foco no nível AA da WCAG.
 - Q: Como medir se o testador aprendeu os conceitos? → A: Com um quiz no encerramento, dentro do jogo, sem salvar as respostas.
@@ -35,7 +35,23 @@
 - Q: De onde virão a arte e o áudio do protótipo? → A: No início, placeholders simples. A arte e o áudio finais virão depois, de assets livres de terceiros e de assets gerados por IA.
 - Q: Quão perto da cor-alvo o jogador precisa chegar? → A: Valor exato nos três canais.
 - Q: Como a cor-alvo é apresentada ao jogador? → A: Lado a lado com a cor do jogador. Ao apertar "Confirmar cor", cada canal errado recebe só "maior" ou "menor" em relação ao número inserido, sem revelar o valor.
-- Q: Há limite de confirmações erradas? → A: Em cada etapa, a primeira fase não tem limite e a segunda permite 3 confirmações erradas; na terceira, o jogador perde e a fase recomeça do zero. Fases com limite não podem ser puladas, mas mantêm as dicas.
+- Q: Há limite de confirmações erradas? → A: Em cada etapa, a primeira fase não tem limite e a segunda permite 3 confirmações erradas; na terceira, o jogador perde e a fase recomeça do zero. Fases com limite não podem ser puladas, mas mantêm as dicas. (Momento da derrota precisado na sessão de 2026-11-19: na 4ª confirmação errada.)
+
+### Session 2026-11-19
+
+- Q: Como funciona a fase de canos do tipo prever? → A: A bandeja traz a junção definida pela fase, o jogador monta o caminho, marca a saída esperada de cada combinação e confirma. A fase é concluída se o caminho estiver ligado e todas as previsões coincidirem com o comportamento do sinal; qualquer previsão errada conta como uma confirmação errada.
+- Q: Qual tipo de fase de canos vem primeiro? → A: Prever, depois escolher. A fase de escolher é a segunda da etapa, com limite de confirmações erradas.
+- Q: Quem escreve o conteúdo das fases (cores-alvo, grades, dicas, falas, nome do guia, explicações)? → A: A IA rascunha num arquivo de conteúdo separado do código, e nada entra no jogo sem aprovação dos autores.
+- Q: Na fase de prever, o que o jogo mostra quando há previsões erradas? → A: Só quantas previsões estão erradas, sem dizer quais. O sinal só corre pelas combinações quando todas as previsões estiverem certas.
+- Q: Numa fase com limite, em qual confirmação errada o jogador perde? → A: Na 4ª. O jogador pode errar 3 vezes e perde ao errar a quarta.
+- Q: No celular, o jogo bloqueia a orientação paisagem? → A: Não. É projetado e otimizado para retrato, mas continua utilizável se o aparelho for girado, para não restringir a orientação (WCAG AA).
+- Q: Como os acertos do quiz são medidos no teste informal, se as respostas não são salvas? → A: O jogo mostra na tela se cada resposta está certa, sem salvar nada. O autor, presente no teste, anota só certo ou errado de cada pergunta, sem nome nem outro dado do testador.
+- Q: Como quem não percebe cores, ou usa leitor de tela, conclui as fases de cor? → A: Cada cor-alvo tem uma descrição em texto, sem números, além do retorno "maior"/"menor". Uma opção de acessibilidade, ligada pelo próprio jogador, retira o limite de confirmações erradas das fases de cor.
+- Q: Com qual valor os três canais começam em cada fase de cor? → A: Sempre (0, 0, 0), o preto, em toda fase de cor e ao recomeçar uma fase perdida.
+- Q: Como o jogador tem acesso às 3 dicas de cada fase? → A: Nenhuma dica fica aberta antes do 1º erro; cada confirmação errada libera a próxima. Ao perder e recomeçar uma fase, as dicas liberadas voltam a zero junto com o contador.
+- Q: Confirmar com o caminho de canos incompleto conta como confirmação errada? → A: Não. Com o caminho incompleto, ou com alguma previsão em branco na fase de prever, o jogo avisa o que falta, e a confirmação não gasta tentativa nem libera dica.
+- Q: O jogador é avisado do limite e vê quantas tentativas restam? → A: Sim. Ao abrir uma fase com limite, o jogo informa que é possível errar 3 vezes, e durante a fase mostra sempre, em texto, quantas tentativas restam.
+- Q: Qual versão da WCAG vale para o nível AA? → A: WCAG 2.2, nível AA.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -67,9 +83,10 @@ O jogador organiza canos e junções para levar um sinal até a saída. Cada jun
 **Acceptance Scenarios**:
 
 1. **Given** uma fase de canos, **When** o jogador arrasta uma peça da bandeja para a grade, ou a move dentro dela, **Then** o caminho do sinal é atualizado de forma visível.
-2. **Given** uma fase com combinações de entrada definidas, **When** o jogador confirma a solução, **Then** o jogo a testa em todas essas combinações e mostra quais passaram e quais falharam.
+2. **Given** uma fase de escolher com combinações de entrada definidas, **When** o jogador confirma a solução, **Then** o jogo a testa em todas essas combinações e mostra quais passaram e quais falharam.
 3. **Given** um caminho ligado que produz a saída errada em alguma combinação, **When** é testado, **Then** a fase não é concluída, porque conectar as peças não basta.
 4. **Given** uma etapa concluída, **When** o jogador avança, **Then** o jogo associa cada junção à porta lógica correspondente e à sua regra.
+5. **Given** uma fase de prever com alguma previsão errada, **When** o jogador confirma, **Then** o jogo informa só quantas previsões estão erradas, sem indicar quais, e o sinal não corre.
 
 ---
 
@@ -93,36 +110,37 @@ O orientador recebe um link, abre o jogo sem cadastro nem instalação e percorr
 ### Edge Cases
 
 - Ao recarregar ou fechar a página, o progresso continua salvo no navegador. Se o dado salvo estiver ausente ou corrompido, o jogo recomeça do início sem erro, e o jogador pode apagar o progresso para recomeçar.
-- Quem travar recebe dicas graduais em qualquer fase. Só pode pular a primeira fase de cada etapa; na segunda, pode recomeçar quantas vezes quiser.
-- Ao perder uma fase com limite, o contador de erros volta a zero e a fase recomeça, sem afetar as fases já concluídas.
-- Em tela de celular, o jogo é projetado para a orientação retrato, com controles utilizáveis por toque.
-- Quem não distingue bem as cores consegue resolver as fases usando os valores numéricos.
+- Quem errar recebe dicas graduais em qualquer fase, uma a cada confirmação errada. Só pode pular a primeira fase de cada etapa; na segunda, pode recomeçar quantas vezes quiser.
+- Ao perder uma fase com limite, o contador de erros e as dicas liberadas voltam a zero e a fase recomeça, sem afetar as fases já concluídas.
+- Em tela de celular, o jogo é projetado e otimizado para a orientação retrato, com controles utilizáveis por toque. Se o aparelho for girado para paisagem, o jogo continua utilizável, sem bloquear a orientação.
+- Quem não distingue bem as cores, ou usa leitor de tela, resolve as fases de cor pela descrição em texto da cor-alvo e pelo retorno "maior"/"menor" de cada canal. Se ligar a opção de acessibilidade, as fases de cor ficam sem limite de confirmações erradas.
 - O estado dos canos nunca depende só da cor: o sinal também é indicado por forma, movimento ou texto.
 - Uma peça solta fora da grade ou em posição inválida volta à bandeja, sem quebrar o caminho já montado.
+- Confirmar com o caminho incompleto, ou com previsões em branco, só mostra o que falta: não gasta tentativa nem libera dica.
 - Uma solução correta diferente da prevista é aceita, porque a validação considera o comportamento, não um único arranjo.
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
-- **FR-001**: O jogo MUST abrir por um link em navegadores atuais de computador e celular, sem cadastro, instalação ou pagamento, publicado como site estático no GitHub Pages.
+- **FR-001**: O jogo MUST abrir por um link em navegadores atuais de computador e celular, sem cadastro, instalação ou pagamento.
 - **FR-002**: O jogo MUST apresentar a premissa de que o mundo digital apagou e o jogador o religa, com opção de pular. Cada fase concluída MUST devolver algo visível ao mundo, e um personagem guia original MUST comentar o progresso em falas curtas, que podem ser puladas.
-- **FR-003**: O jogo MUST oferecer uma etapa de cor antes da etapa de canos. A primeira fase de cada etapa MUST não ter limite de tentativas e poder ser pulada. A segunda fase de cada etapa MUST permitir no máximo 3 confirmações erradas; na terceira, o jogador perde e a fase recomeça do zero. Fases com limite MUST NOT poder ser puladas, mas MUST manter as dicas.
-- **FR-004**: A etapa de cor MUST permitir ajustar três canais, de 0 a 255, com resultado e valores visíveis em tempo real, e MUST oferecer ajuste de 1 em 1 e digitação do valor, para que o valor exato seja alcançável também no celular.
-- **FR-005**: Cada fase de cor MUST ter uma cor-alvo definida exibida lado a lado com a cor atual do jogador, e só ser concluída quando os três canais forem exatamente iguais aos dela. A conferência MUST acontecer quando o jogador aperta "Confirmar cor", e cada canal errado MUST receber apenas "maior" ou "menor" em relação ao valor inserido.
+- **FR-003**: O jogo MUST oferecer uma etapa de cor antes da etapa de canos. A primeira fase de cada etapa MUST não ter limite de tentativas e poder ser pulada. A segunda fase de cada etapa MUST permitir até 3 confirmações erradas; na 4ª confirmação errada, o jogador perde e a fase recomeça do zero. Fases com limite MUST NOT poder ser puladas, mas MUST manter as dicas. Ao abrir uma fase com limite, o jogo MUST informar quantas confirmações erradas são permitidas e, durante a fase, MUST mostrar sempre, em texto, quantas tentativas restam. Com a opção de acessibilidade do FR-018 ligada, as fases de cor MUST ficar sem limite de confirmações erradas.
+- **FR-004**: A etapa de cor MUST permitir ajustar três canais, de 0 a 255, com resultado e valores visíveis em tempo real, e MUST oferecer ajuste de 1 em 1 e digitação do valor, para que o valor exato seja alcançável também no celular. Os três canais MUST começar em 0 em toda fase de cor, inclusive ao recomeçar uma fase perdida.
+- **FR-005**: Cada fase de cor MUST ter uma cor-alvo definida exibida lado a lado com a cor atual do jogador, acompanhada de uma descrição em texto que não revela os valores numéricos, e só ser concluída quando os três canais forem exatamente iguais aos dela. A conferência MUST acontecer quando o jogador aperta "Confirmar cor", e cada canal errado MUST receber apenas "maior" ou "menor" em relação ao valor inserido.
 - **FR-006**: A etapa de cor MUST relacionar os valores RGB a pixels de uma imagem.
 - **FR-007**: A etapa de canos MUST permitir arrastar peças de uma bandeja para uma grade, movê-las e devolvê-las à bandeja, e mostrar o caminho do sinal, representado como energia. Toda ação de arrastar MUST ter alternativa por seleção, para teclado, toque simples e leitor de tela.
 - **FR-008**: A etapa de canos MUST incluir junções com o comportamento das portas AND e OR, de 2 entradas, e NOT, de 1 entrada.
-- **FR-009**: A validação de canos MUST testar todas as combinações de entrada definidas na fase e aceitar qualquer solução que produza as saídas corretas.
-- **FR-010**: As fases de canos MUST alternar entre dois tipos: prever, em que o jogador marca a saída esperada de cada combinação antes de o sinal correr, e escolher, em que ele escolhe a junção certa. Ligar a entrada à saída não pode bastar.
-- **FR-011**: O jogo MUST dar retorno específico em caso de erro, sem revelar a resposta na primeira tentativa, e oferecer 3 níveis de dica por fase.
+- **FR-009**: A validação de canos MUST testar todas as combinações de entrada definidas na fase e aceitar qualquer solução que produza as saídas corretas. Uma confirmação com o caminho incompleto, ou com alguma previsão em branco na fase de prever, MUST NOT contar como confirmação errada nem liberar dica, e o jogo MUST indicar o que falta.
+- **FR-010**: As fases de canos MUST alternar entre dois tipos: prever, em que o jogador marca a saída esperada de cada combinação antes de o sinal correr, e escolher, em que ele escolhe a junção certa. Ligar a entrada à saída não pode bastar. Na fase de prever, uma confirmação com previsões erradas MUST informar apenas quantas estão erradas, sem indicar quais, e o sinal MUST correr pelas combinações só quando todas as previsões estiverem certas.
+- **FR-011**: O jogo MUST dar retorno específico em caso de erro, sem revelar a resposta na primeira tentativa, e oferecer 3 níveis de dica por fase. Nenhuma dica MUST estar disponível antes da 1ª confirmação errada da fase; cada confirmação errada MUST liberar a dica seguinte, até a 3ª. Ao perder e recomeçar uma fase, as dicas liberadas MUST voltar a zero junto com o contador de erros.
 - **FR-012**: Cada etapa MUST explicar seu conceito em poucas frases, depois de o jogador praticá-lo.
-- **FR-013**: O encerramento MUST resumir os conceitos aprendidos, identificar a experiência como protótipo e apresentar um quiz curto: o significado de (255, 0, 0) e a saída de uma porta lógica numa combinação nova. As respostas do quiz MUST NOT ser salvas nem enviadas.
+- **FR-013**: O encerramento MUST resumir os conceitos aprendidos, identificar a experiência como protótipo e apresentar um quiz curto: o significado de (255, 0, 0) e a saída de uma porta lógica numa combinação nova. Depois de cada resposta, o jogo MUST mostrar na tela se ela está certa. As respostas do quiz MUST NOT ser salvas nem enviadas.
 - **FR-014**: Todo fato histórico exibido MUST ter fonte registrada e consultável.
 - **FR-015**: O jogo MUST NOT ter compras, loot boxes, publicidade, cadastro ou coleta de dados pessoais.
 - **FR-016**: O jogo MUST NOT usar nome, fases, arte ou outra identidade de jogos existentes.
 - **FR-017**: Fases, soluções e textos MUST ser determinísticos e identificados por uma versão visível do protótipo.
-- **FR-018**: Nenhuma informação MUST depender apenas de cor, e o jogo MUST poder ser usado por toque, por teclado e por leitor de tela, com contraste e foco no nível AA da WCAG.
+- **FR-018**: Nenhuma informação MUST depender apenas de cor, e o jogo MUST poder ser usado por toque, por teclado e por leitor de tela, com contraste e foco no nível AA da WCAG 2.2, e MUST NOT restringir o uso a uma única orientação de tela. O jogo MUST oferecer uma opção de acessibilidade, ligada pelo próprio jogador e sem pedir justificativa, que retira o limite de confirmações erradas das fases de cor.
 - **FR-019**: O visual final MUST ser desenhado à mão, com personalidade e animações satisfatórias, inspirado no estilo de Hollow Knight sem reproduzir arte, personagens ou identidade desse jogo (FR-016).
 - **FR-020**: O jogo MUST ter efeitos sonoros e música, provisórios no protótipo, com controle para silenciar.
 - **FR-021**: O progresso MUST ser salvo apenas no navegador do jogador, sem identificá-lo, e poder ser apagado pelo próprio jogador.
@@ -131,12 +149,12 @@ O orientador recebe um link, abre o jogo sem cadastro nem instalação e percorr
 ### Key Entities
 
 - **Etapa**: conjunto de fases sobre um conceito, com sua explicação e sua ordem na experiência.
-- **Fase de cor**: cor-alvo, dicas e explicação.
+- **Fase de cor**: cor-alvo, descrição em texto da cor-alvo, dicas e explicação.
 - **Fase de canos**: grade, peças disponíveis na bandeja, entradas, saídas esperadas, tipo (prever ou escolher) e dicas.
 - **Junção**: peça com um comportamento lógico (AND, OR ou NOT).
 - **Personagem guia**: personagem original que apresenta a premissa e comenta o progresso, sem identidade de outros jogos.
 - **Fato histórico**: texto exibido no jogo, associado à sua fonte.
-- **Progresso salvo**: fases concluídas ou puladas, e confirmações erradas da fase em andamento, guardadas no navegador do jogador, sem identificá-lo.
+- **Progresso salvo**: fases concluídas ou puladas, confirmações erradas da fase em andamento e as preferências de som e de acessibilidade, guardadas no navegador do jogador, sem identificá-lo.
 
 ## Success Criteria *(mandatory)*
 
@@ -147,6 +165,7 @@ O orientador recebe um link, abre o jogo sem cadastro nem instalação e percorr
 - **SC-003**: Em um teste informal com 3 amigos do autor (perfil a definir), ao menos 2 concluem as duas etapas sem ajuda.
 - **SC-004**: No quiz do encerramento, ao menos 2 de 3 testadores acertam o que significa (255, 0, 0).
 - **SC-005**: No quiz do encerramento, ao menos 2 de 3 testadores acertam a saída de uma porta lógica numa combinação nova.
+- O SC-004 e o SC-005 são medidos pelo autor, presente no teste, que anota só certo ou errado de cada pergunta conforme o jogo mostra na tela, sem nome nem outro dado que identifique o testador.
 - **SC-006**: Todas as soluções de referência são aceitas, e todas as soluções incorretas de teste são rejeitadas.
 - **SC-007**: O jogo é concluído do início ao fim em um computador e em um celular na orientação retrato.
 

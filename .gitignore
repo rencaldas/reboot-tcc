@@ -1,6 +1,9 @@
 # Normas ABNT — protegidas por direito autoral, nunca versionar
 docs/tcc/normas/
 
+# Correspondência com o orientador — contém dados pessoais, nunca versionar
+docs/tcc/orientacao/
+
 # Segredos e configuração local
 .env
 .env.*
