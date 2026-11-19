@@ -30,8 +30,8 @@ estão em [research.md](research.md) e no [ADR 0001](../../docs/adr/0001-stack-d
 **Testing**: Vitest (domínio em Node; componentes com Testing Library em jsdom) e `axe-core` para
 acessibilidade automática.
 
-**Target Platform**: navegadores atuais de computador e celular, com celular em retrato. Site estático no
-GitHub Pages.
+**Target Platform**: navegadores atuais de computador e celular. No celular, otimizado para retrato, sem
+bloquear a paisagem. Site estático no GitHub Pages.
 
 **Project Type**: aplicação web estática (single-page), sem backend.
 

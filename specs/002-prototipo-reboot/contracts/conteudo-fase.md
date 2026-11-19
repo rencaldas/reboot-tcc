@@ -27,6 +27,7 @@ Cada invariante tem um teste automatizado que roda no CI. Um conteúdo inválido
 **Fases de cor:**
 
 - Todo canal do `alvo` é inteiro entre 0 e 255.
+- Toda fase de cor tem `descricaoAlvo` não vazia e sem algarismos, para não revelar os valores (FR-005).
 
 **Fases de canos:**
 

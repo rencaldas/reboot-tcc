@@ -40,7 +40,7 @@ A etapa `cor` vem antes da `canos` (FR-003).
 |---|---|---|
 | `id` | texto | Único e estável entre versões, porque é a chave do progresso salvo. |
 | `etapa` | `id` de etapa | |
-| `limiteErros` | número ou `null` | `null` na 1ª fase da etapa; `3` na 2ª (FR-003). |
+| `limiteErros` | número ou `null` | Confirmações erradas permitidas. `null` na 1ª fase da etapa; `3` na 2ª, e a 4ª confirmação errada causa a derrota (FR-003). |
 | `podePular` | booleano | `true` só quando `limiteErros` é `null` (FR-003). |
 | `dicas` | 3 textos | Exatamente 3, do mais vago ao mais direto (FR-011). |
 | `devolveAoMundo` | texto | O que reaparece no mundo ao concluir (FR-002). |
@@ -51,6 +51,7 @@ A etapa `cor` vem antes da `canos` (FR-003).
 | Campo | Tipo | Regra |
 |---|---|---|
 | `alvo` | `Cor` | Valor exato a alcançar (FR-005). |
+| `descricaoAlvo` | texto | Descrição da cor-alvo em palavras, sem números (FR-005, FR-018). |
 
 A última fase de cor também traz `imagemPixels`: uma matriz pequena de `Cor` usada para relacionar pixels
 aos três valores (FR-006, US1 cenário 4).
@@ -130,6 +131,7 @@ as combinações passam. No tipo `prever`, também exige que cada previsão seja
 | `fases` | mapa de `id` de fase para `'concluida' \| 'pulada'` |
 | `emAndamento` | `{ faseId, errosConfirmacao } \| null` |
 | `somMudo` | booleano |
+| `semLimiteCor` | booleano: opção de acessibilidade que retira o limite das fases de cor (FR-003, FR-018) |
 
 Nenhum campo identifica o jogador (FR-021). Formato e regras de leitura estão no
 [contrato do progresso](contracts/progresso-salvo.md).
@@ -143,12 +145,14 @@ bloqueada ──(fase anterior concluída ou pulada)──▶ disponível ──
 
 em andamento ──(confirmação certa)──────────────────────────────▶ concluída
 em andamento ──(pular; só se podePular)─────────────────────────▶ pulada
-em andamento ──(confirmação errada; sem limite, ou não é a 3ª)───▶ em andamento (erros + 1)
-em andamento ──(3ª confirmação errada com limite 3)─────────────▶ perdida
+em andamento ──(confirmação errada; sem limite, ou erros < limite)─▶ em andamento (erros + 1)
+em andamento ──(confirmação errada com erros = limite)────────────▶ perdida
 perdida ──(automático)──────────────────────────────────────────▶ em andamento (erros = 0, montagem zerada)
 ```
 
-- Com limite 3, a 1ª e a 2ª confirmação errada continuam a fase, e na 3ª o jogador perde (FR-003).
+- Com limite 3, da 1ª à 3ª confirmação errada a fase continua, e na 4ª o jogador perde (FR-003).
+- Com `semLimiteCor` ligado, o limite efetivo das fases de cor é `null`. O fato de a fase poder ser pulada
+  continua a vir do conteúdo (`podePular`), então a 2ª fase de cor segue sem poder ser pulada.
 - Perder não altera as fases já concluídas.
 - As dicas ficam disponíveis em qualquer estado em andamento (FR-003, FR-011).
 
