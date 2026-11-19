@@ -37,6 +37,12 @@
 - Q: Como a cor-alvo é apresentada ao jogador? → A: Lado a lado com a cor do jogador. Ao apertar "Confirmar cor", cada canal errado recebe só "maior" ou "menor" em relação ao número inserido, sem revelar o valor.
 - Q: Há limite de confirmações erradas? → A: Em cada etapa, a primeira fase não tem limite e a segunda permite 3 confirmações erradas; na terceira, o jogador perde e a fase recomeça do zero. Fases com limite não podem ser puladas, mas mantêm as dicas.
 
+### Session 2026-11-19
+
+- Q: Como funciona a fase de canos do tipo prever? → A: A bandeja traz a junção definida pela fase, o jogador monta o caminho, marca a saída esperada de cada combinação e confirma. A fase é concluída se o caminho estiver ligado e todas as previsões coincidirem com o comportamento do sinal; qualquer previsão errada conta como uma confirmação errada.
+- Q: Qual tipo de fase de canos vem primeiro? → A: Prever, depois escolher. A fase de escolher é a segunda da etapa, com limite de confirmações erradas.
+- Q: Quem escreve o conteúdo das fases (cores-alvo, grades, dicas, falas, nome do guia, explicações)? → A: A IA rascunha num arquivo de conteúdo separado do código, e nada entra no jogo sem aprovação dos autores.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Religar as cores (Priority: P1)
