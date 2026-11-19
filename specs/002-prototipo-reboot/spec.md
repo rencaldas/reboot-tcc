@@ -22,7 +22,7 @@
 - Q: O progresso some ao recarregar a página? → A: Não. Fica salvo no próprio navegador, sem dado pessoal.
 - Q: Qual o estilo visual? → A: Desenhado à mão, bonito, com personalidade e satisfatório de ver, inspirado no estilo de Hollow Knight, sem copiar arte, personagens ou identidade (FR-016).
 - Q: O jogo terá som? → A: Sim, com efeitos e música. Os arquivos de áudio ainda não existem.
-- Q: Onde o jogo fica hospedado? → A: Site estático no GitHub Pages. Se surgir algum problema, o autor decide a mudança.
+- Q: Onde o jogo fica hospedado? → A: Site estático no GitHub Pages. Se surgir algum problema, o autor decide a mudança. (Decisão técnica; detalhada no plan.md.)
 - Q: Qual a orientação no celular? → A: Retrato.
 - Q: A acessibilidade inclui leitor de tela? → A: Sim, além de teclado, toque e contraste/foco no nível AA da WCAG.
 - Q: Como medir se o testador aprendeu os conceitos? → A: Com um quiz no encerramento, dentro do jogo, sem salvar as respostas.
@@ -105,7 +105,7 @@ O orientador recebe um link, abre o jogo sem cadastro nem instalação e percorr
 
 ### Functional Requirements
 
-- **FR-001**: O jogo MUST abrir por um link em navegadores atuais de computador e celular, sem cadastro, instalação ou pagamento, publicado como site estático no GitHub Pages.
+- **FR-001**: O jogo MUST abrir por um link em navegadores atuais de computador e celular, sem cadastro, instalação ou pagamento.
 - **FR-002**: O jogo MUST apresentar a premissa de que o mundo digital apagou e o jogador o religa, com opção de pular. Cada fase concluída MUST devolver algo visível ao mundo, e um personagem guia original MUST comentar o progresso em falas curtas, que podem ser puladas.
 - **FR-003**: O jogo MUST oferecer uma etapa de cor antes da etapa de canos. A primeira fase de cada etapa MUST não ter limite de tentativas e poder ser pulada. A segunda fase de cada etapa MUST permitir no máximo 3 confirmações erradas; na terceira, o jogador perde e a fase recomeça do zero. Fases com limite MUST NOT poder ser puladas, mas MUST manter as dicas.
 - **FR-004**: A etapa de cor MUST permitir ajustar três canais, de 0 a 255, com resultado e valores visíveis em tempo real, e MUST oferecer ajuste de 1 em 1 e digitação do valor, para que o valor exato seja alcançável também no celular.
